@@ -1,0 +1,182 @@
+/*
+font-family: 'Roboto Slab', serif;
+font-family: 'Roboto', sans-serif;
+*/
+
+/*
+grayish: #717c89
+bluegray: #8aa2a9
+greengray: #90baad
+green: #a1e5ab
+lightgreen: #adf6b1
+*/
+
+/*Main Styling*/
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding: 0px 50px;
+}
+
+h1, h2 {
+    font-family: 'Roboto Slab', serif;
+}
+h1 {
+    font-size: 48px;
+    padding-top: 15px;
+}
+.container {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    grid-template-rows: auto auto auto ;
+    grid-template-areas: 
+        "navigation navigation "
+        "main related"
+        "footer footer";
+    grid-gap: 20px;
+}
+
+div {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.navigation {
+    grid-area: navigation;
+    display: inline-block;
+    padding: 0px;
+    height: 40px;
+}
+.main-content {
+    grid-area: main;
+    padding: 0px 5px;
+}
+
+/*Home Page*/
+.main-content img {
+    padding-left: 10px;
+    height: 50px;
+}
+.main-content h1{
+    margin-top: 0px;
+}
+.related-content {
+    grid-area: related;
+    color: white;
+    background-color: #8aa2a9;
+    padding: 0 20px;
+}
+.footer {
+    grid-area: footer;
+    text-align: center;
+    background-color: #90baad;
+    color: white;
+}
+
+/*Locations Page*/
+
+.location h2 {
+    display: inline-block;
+}
+.location img {
+    display: inline-block;
+    height: 70px;
+    padding-right: 15px;
+    padding-left: 0px;
+}
+
+.location p {
+    padding-left: 25px;
+    max-width: 600px;
+}
+
+/* Responsive menu */
+
+.navigation ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    position: absolute;
+}
+
+.navigation li {
+    display:inline-block;
+    float: left;
+    margin-right: 1px;
+}
+.navigation li a {
+    display:block;
+    min-width:150px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    background: #717c89;
+    text-decoration: none;
+}
+/*Active color*/
+.navigation li a.active {
+    background: #90baad;
+}
+/*Hover state for top level links*/
+.navigation li:hover a {
+    background: #90baad;
+}
+/*Style 'show menu' label button and hide it by default*/
+.navigation .show-menu {
+    text-decoration: none;
+    color: #fff;
+    background: #90baad;
+    text-align: center;
+    padding: 10px 0;
+    display: none;
+}
+/*Hide checkbox*/
+.navigation input[type=checkbox]{
+    display: none;
+}
+/*Show menu when invisible checkbox is checked*/
+.navigation input[type=checkbox]:checked ~ #menu{
+    display: block;
+}
+/*Responsive Styles*/
+@media screen and (max-width : 760px){
+    body {
+        padding: 0px;
+    }
+
+    .navigation {
+	height: auto;
+    }
+
+    /* Change grid */
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "navigation"
+            "main"
+            "related"
+            "footer";
+        grid-gap: 20px;
+    }
+    
+    /*Make dropdown links appear inline*/
+    .navigation ul {
+        position: static;
+        display: none;
+    }
+    /*Create vertical spacing*/
+    .navigation li {
+        margin-bottom: 1px;
+    }
+    /*Make all menu links full width*/
+    .navigation ul li, li a {
+        width: 100%;
+    }
+    /*Display 'show menu' link*/
+    .navigation .show-menu {
+        display:block;
+    }
+}
